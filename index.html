@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0f0f13;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 24px;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  const assetsUrl = "https://assets.deadlock-api.com/v2/heroes"
+  const statsUrl = "https://api.deadlock-api.com/v1/analytics/hero-stats"
+
+  Promise.all([
+    fetch(assetsUrl).then(r => r.json()),
+    fetch(statsUrl).then(r => r.json())
+  ]).then(([heroes, stats]) => {
+    console.log("Герои:", heroes)
+    console.log("Статы:", stats)
+  })
+</script>
+
+</body>
+</html>
