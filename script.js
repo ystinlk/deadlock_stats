@@ -9,11 +9,16 @@ Promise.all([
 ]).then(([heroes, stats]) => {
   const allmatches = stats.reduce((summ, item) => summ + item.matches, 0); // общее колво матчей в этом патче
   let data_Sorted = []
+  let currentSort = {column: 2, direction: "desc"} // текущая сортировка 
 
-  function SortBy(choose) {
-    // получаем данные для сортировки
+  function SortBy(column) {
+    if (currentSort.column === column) {
+      currentSort.direction = currentSort.direction === "desc" ? "asc" : "desc"
+    } else {
+      currentSort.column = column
+      currentSort.direction = "desc"
+    }
     const data_unSorted = []
-
     heroes.forEach(hero => {
 
       const heroStats = stats.find(stat => stat.hero_id === hero.id)
@@ -32,30 +37,43 @@ Promise.all([
       })
     });
     // Сортировка в зависимости от выбора
-    if (choose === 1) {
-      data_Sorted = [...data_unSorted].sort((a, b) => a.name.localeCompare(b.name))
+    const dir = currentSort.direction === "desc" ? 1 : -1
+    if (column === 1) {
+      data_Sorted = [...data_unSorted].sort((a, b) => dir * b.name.localeCompare(a.name))
     }
-    if (choose === 2) {
-      data_Sorted = [...data_unSorted].sort((a, b) => b.win_rate - a.win_rate)
+    if (column === 2) {
+      data_Sorted = [...data_unSorted].sort((a, b) => dir * (b.win_rate - a.win_rate))
     }
-    if (choose === 3) {
-      data_Sorted = [...data_unSorted].sort((a, b) => b.pick_rate - a.pick_rate)
+    if (column === 3) {
+      data_Sorted = [...data_unSorted].sort((a, b) => dir * (b.pick_rate - a.pick_rate))
     }
+  }
+  function UpdateArrows() {
+    document.getElementById("hero"). textContent = "Hero"
+    document.getElementById("WR"). textContent = "WR"
+    document.getElementById("PR"). textContent = "PR"
+    
+    const arrow = currentSort.direction ==="desc" ? "↓" : "↑"
+    const buttons = {1: "hero", 2: "WR", 3: "PR"}
+    const activeBtn = document.getElementById(buttons[currentSort.column])
+    activeBtn.textContent += arrow
   }
 
 
-  function TableRender(choose) {
+  function TableRender(column) {
     table.innerHTML = ""
-    SortBy(choose)
-    data_Sorted.forEach(hero => {
+    SortBy(column)
+    UpdateArrows ()
+    data_Sorted.forEach(hero => { 
+    const wrColor = hero.win_rate >= 50 ? "green" : "red"
 
 
       // добавляем html строчки в таблицу
       const row = `
           <tr>
-            <td>${hero.name}</td>
-            <td>${hero.win_rate}%</td>
-            <td>${hero.pick_rate}%</td>
+          <td>${hero.name}</td>
+          <td style="color: ${wrColor}">${hero.win_rate}%</td>
+          <td>${hero.pick_rate}%</td>
           </tr>
         `
 
