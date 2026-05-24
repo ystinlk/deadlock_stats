@@ -1,5 +1,5 @@
 
-const assetsUrl = "https://assets.deadlock-api.com/v2/heroes"
+const assetsUrl = "https://api.deadlock-api.com/v1/assets/heroes"
 const statsUrl = "https://api.deadlock-api.com/v1/analytics/hero-stats"
 const table = document.getElementById("heroes-table")
 
