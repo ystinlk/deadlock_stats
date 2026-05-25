@@ -1,0 +1,69 @@
+input {
+    background: transparent;
+    border: 1px solid #555;
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: #fff;
+    outline: none;
+    font-size: 14px;
+    padding: 16px 32px;
+    width: 400px;
+    margin-bottom: 20px;
+}
+input::placeholder {
+    color: #888;
+}
+
+input:focus {
+    border-color: #aaa;
+}
+
+input:focus::placeholder {
+    color: white;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #040404 inset;
+    -webkit-text-fill-color: #fff;
+}
+
+button {
+    height: 50px;
+    padding: 16px 32px;        /* отступы внутри */
+    border-radius: 6px;       /* скругление */
+    border: none;             /* убрать рамку */
+    background: #4a90e2;      /* цвет */
+    color: #fff;
+    cursor: pointer;          /* курсор-рука при наведении */
+    transition: transform 0.1s; /* плавность для эффектов */
+}
+
+button:hover {
+    transform: scale(1.05);   /* увеличение при наведении */
+}
+
+img {
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+}
+
+a {
+    color: white;
+}
+td {
+    padding: 8px 16px;
+}
+
+table {
+    background-color: #111111;
+    border-radius: 15px;
+    width: 600px;
+    margin: 0 auto;
+}
+
+#input_area {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}

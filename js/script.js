@@ -16,6 +16,7 @@ Promise.all([
   const allmatches = stats.reduce((summ, item) => summ + item.matches, 0); // общее колво матчей в этом патче
   let data_Sorted = []
   let currentSort = {column: 2, direction: "desc"} // текущая сортировка 
+
   function SortBy(column) {
     if (currentSort.column === column) {
       currentSort.direction = currentSort.direction === "desc" ? "asc" : "desc"
@@ -29,8 +30,9 @@ Promise.all([
       if (!heroStats) return
       const winrate = (
         heroStats.wins / heroStats.matches * 100
-      ).toFixed(1)
+        ).toFixed(1)
       const PickRate = (heroStats.matches / allmatches * 100).toFixed(1)
+
       // записываем данные для сортировки
       data_unSorted.push({
         name: hero.name,
@@ -40,6 +42,7 @@ Promise.all([
         pick_rate: Number(PickRate)
       })
     });
+
     // Сортировка в зависимости от выбора
     const dir = currentSort.direction === "desc" ? 1 : -1
     if (column === 1) {
@@ -52,6 +55,7 @@ Promise.all([
       data_Sorted = [...data_unSorted].sort((a, b) => dir * (b.pick_rate - a.pick_rate))
     }
   }
+
   function UpdateArrows() {
     document.getElementById("hero"). textContent = "Hero"
     document.getElementById("WR"). textContent = "WR"
@@ -62,6 +66,7 @@ Promise.all([
     const activeBtn = document.getElementById(buttons[currentSort.column])
     activeBtn.textContent += arrow
   }
+
   function TableRender(column) {
     table.innerHTML = ""
     SortBy(column)
@@ -82,6 +87,7 @@ const row = `
       table.innerHTML += row
     })
   }
+  // рендер после загрузки страницы
   TableRender(2)
   document.getElementById("hero").addEventListener("click", () => TableRender(1))
   document.getElementById("WR").addEventListener("click", () => TableRender(2))

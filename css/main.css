@@ -4,3 +4,9 @@
   box-sizing: border-box;
 }
 
+body {
+    background: #040404;
+    color: #c8ccd8;
+    font-family: sans-serif;
+    padding: 20px;
+}
