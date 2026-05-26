@@ -5,8 +5,66 @@
 }
 
 body {
-    background: #040404;
-    color: #c8ccd8;
-    font-family: sans-serif;
-    padding: 20px;
+  background: #040404;
+  color: #c8ccd8;
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+
+#steam_finder {
+  width: 220px;
+  padding: 16px 32px;        /* отступы внутри */
+  border-radius: 6px;       /* скругление */
+  border: none;             /* убрать рамку */
+  background: #FF8C00;      /* цвет */
+  color: #fff;
+  cursor: pointer;          /* курсор-рука при наведении */
+  transition: transform 0.3s; /* плавность для эффектов */
+  font-size: 14px;
+  text-decoration: none;
+}
+
+#steam_finder:hover{
+  transform: scale(1.05);
+}
+
+#Index {
+  width: 220px;
+  padding: 16px 32px;        /* отступы внутри */
+  border-radius: 6px;       /* скругление */
+  border: none;             /* убрать рамку */
+  background: #9f7bb2;      /* цвет */
+  color: #fff;
+  cursor: pointer;          /* курсор-рука при наведении */
+  transition: transform 0.3s; /* плавность для эффектов */
+  font-size: 14px;
+  text-decoration: none;
+}
+
+#Index:hover{
+  transform: scale(1.05);
+}
+
+#leader_board {
+  width: 220px;
+  padding: 16px 32px;        /* отступы внутри */
+  border-radius: 6px;       /* скругление */
+  border: none;             /* убрать рамку */
+  background: #177245;      /* цвет */
+  color: #fff;
+  cursor: pointer;          /* курсор-рука при наведении */
+  transition: transform 0.3s; /* плавность для эффектов */
+  font-size: 14px;
+  text-decoration: none;
+}
+
+#leader_board:hover {
+  transform: scale(1.05);
+}
+
+.nav_btn {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }
