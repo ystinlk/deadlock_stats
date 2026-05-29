@@ -1,5 +1,5 @@
 body {
-    background: #0d0f17;
+    background: #010101;
     color: #c8cdd8;
     font-family: sans-serif;
     margin: 0;
@@ -10,7 +10,7 @@ nav {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #111520;
+    background: #111111;
     border-bottom: 1px solid #1a1d26;
     display: flex;
     gap: 8px;
