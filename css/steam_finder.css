@@ -32,14 +32,14 @@ button {
     padding: 16px 32px;        /* отступы внутри */
     border-radius: 6px;       /* скругление */
     border: none;             /* убрать рамку */
-    background: #4a90e2;      /* цвет */
+    background: #02315e;      /* цвет */
     color: #fff;
     cursor: pointer;          /* курсор-рука при наведении */
     transition: transform 0.1s; /* плавность для эффектов */
 }
 
 button:hover {
-    transform: scale(1.05);   /* увеличение при наведении */
+    transform: scale(1.01);   /* увеличение при наведении */
 }
 
 img {
@@ -66,4 +66,10 @@ table {
     display: flex;
     justify-content: center;
     gap: 8px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
 }

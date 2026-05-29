@@ -42,5 +42,12 @@ Promise.all(
   )
   console.log(leaderboards)
   RenderTemplate("Europe")
+
+  document.querySelectorAll('.region-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.region-btn').forEach(b => b.classList.remove('active'))
+        btn.classList.add('active')
+    })
+})
 })
 

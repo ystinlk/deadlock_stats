@@ -1,6 +1,39 @@
-body {
-  background: #0f0f13;
-  color: #e0e0e0;
-  font-family: 'Segoe UI', sans-serif;
-  padding: 24px;
+.page-layout {
+    display: flex;
+    gap: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.region-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.region-btn {
+    padding: 7px 16px;
+    border: 1px solid #1a1d26;
+    border-radius: 6px;
+    background: transparent;
+    color: #5a6070;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+}
+
+.region-btn:hover {
+    color: #a0a8bc;
+    border-color: #a0a8bc;
+}
+
+.region-btn.active {
+    color: #a0a8bc;
+    border-color: #a0a8bc;
 }
