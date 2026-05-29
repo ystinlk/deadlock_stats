@@ -11,7 +11,7 @@ const lb_table = document.getElementById("leaderboard_table")
 function RenderTemplate(id) {
   let LB_row = ""
   lb_table.innerText = ""
-  const result = leaderboards.find(leaderboards => leaderboards.region === id)
+  const result = leaderboards.find(lb => lb.region === id)
   result.data.forEach(player => {
     const row = `
       <tr>
@@ -31,7 +31,10 @@ div.addEventListener("click", (event) => {
 Promise.all(
   regions.map(region =>
     fetch(`https://api.deadlock-api.com/v1/leaderboard/${region}`)
-      .then(r => r.json())
+      .then(r => {
+        if (!r.ok) throw new Error(`Ошибка ${r.status}`)
+        return r.json()
+      })
   )
 ).then(data => {
   regions.map((region_x, index) =>
@@ -40,7 +43,6 @@ Promise.all(
       data: data[index].entries
     })
   )
-  console.log(leaderboards)
   RenderTemplate("Europe")
 
   document.querySelectorAll('.region-btn').forEach(btn => {
@@ -50,4 +52,6 @@ Promise.all(
     })
 })
 })
+// ловим ошибку
+.catch(err => console.log(err.message))
 
