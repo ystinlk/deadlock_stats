@@ -9,21 +9,21 @@
     <title>Steam finder</title>
 </head>
 <body>
-    <div id="input_area">
-    <input type="text" placeholder="Введите steam id" id="input_data">
-    <button id="btn_find">Поиск</button>
-    </div>
-     <nav>
-    <a href="../index.html">Герои</a>
-    <a href="leader-board.html">Таблица лидеров</a>
-    <a href="steam_finder.html" class="active">Поиск Steam</a>
-     </nav>
+    <nav>
+        <a href="../index.html">Герои</a>
+        <a href="leader-board.html">Таблица лидеров</a>
+        <a href="steam_finder.html" class="active">Поиск Steam</a>
+    </nav>
+    <div class="container">
+        <div id="input_area">
+            <input type="text" placeholder="Введите steam id" id="input_data">
+            <button id="btn_find">Поиск</button>
+        </div>
         <table>
-            <thead>
-            </thead>
-            <tbody id="search_table">
-            </tbody>
+            <thead></thead>
+            <tbody id="search_table"></tbody>
         </table>
+    </div>
     <script src="../js/steam_finder.js"></script>
 </body>
 </html>
