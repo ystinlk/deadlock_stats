@@ -1,5 +1,5 @@
-import { get_heroes, get_stats } from "./api.js"
-
+const assetsUrl = "https://api.deadlock-api.com/v1/assets/heroes"
+const statsUrl = "https://api.deadlock-api.com/v1/analytics/hero-stats"
 const table = document.getElementById("heroes-table")
 
 function getIconUrl(hero) {
@@ -9,7 +9,15 @@ function getIconUrl(hero) {
   return hero.icon_image_webp || hero.minimap_image || null
 }
   // api запросы
-Promise.all([get_heroes(),get_stats()])
+Promise.all([
+  fetch(assetsUrl).then(r =>{
+  if (!r.ok) throw new Error(`Ошибка ${r.status}`);
+  return r.json()
+}),
+  fetch(statsUrl).then(r =>{
+  if (!r.ok) throw new Error(`Ошибка ${r.status}`);
+  return r.json()
+})])
   .then(([heroes, stats]) => {
   const allmatches = stats.reduce((summ, item) => summ + item.matches, 0); // общее колво матчей в этом патче
   const data_unSorted = [] 
@@ -97,3 +105,8 @@ const row = `
   document.getElementById("WR").addEventListener("click", () => TableRender(2))
   document.getElementById("PR").addEventListener("click", () => TableRender(3))
 }).catch(err => console.log(err.message))
+
+window.addEventListener('scroll', () => {
+    document.getElementById('scroll-top').style.opacity
+        = window.scrollY > 300 ? '1' : '0'
+})

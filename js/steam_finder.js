@@ -24,3 +24,7 @@ btn.addEventListener("click", (event) => {
     Steam_ID_find(input_data.value).then(players => RenderTemplate(players)).catch(err => console.log(err.message))
 })
 
+window.addEventListener('scroll', () => {
+    document.getElementById('scroll-top').style.opacity
+        = window.scrollY > 300 ? '1' : '0'
+})

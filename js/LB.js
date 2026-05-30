@@ -52,3 +52,7 @@ Promise.all(get_leaderboard()).then(data => {
 // ловим ошибку
 .catch(err => console.log(err.message))
 
+window.addEventListener('scroll', () => {
+    document.getElementById('scroll-top').style.opacity
+        = window.scrollY > 300 ? '1' : '0'
+})

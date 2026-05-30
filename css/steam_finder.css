@@ -27,21 +27,20 @@ input:-webkit-autofill {
     -webkit-text-fill-color: #fff;
 }
 
-button {
+button:not(#scroll-top) {
     height: 50px;
-    padding: 16px 32px;        /* отступы внутри */
-    border-radius: 6px;       /* скругление */
-    border: none;             /* убрать рамку */
-    background: #02315e;      /* цвет */
+    padding: 16px 32px;
+    border-radius: 6px;
+    border: none;
+    background: #02315e;
     color: #fff;
-    cursor: pointer;          /* курсор-рука при наведении */
-    transition: transform 0.1s; /* плавность для эффектов */
+    cursor: pointer;
+    transition: transform 0.1s;
 }
 
-button:hover {
-    transform: scale(1.01);   /* увеличение при наведении */
+button:not(#scroll-top):hover {
+    transform: scale(1.01);
 }
-
 img {
     width: 64px;
     height: 64px;

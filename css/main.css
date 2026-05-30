@@ -41,3 +41,30 @@ nav a.active {
     color: #a0a8bc;
     border-color: #a0a8bc;
 }
+
+#scroll-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #111520;
+    border: 1px solid #2a2d3a;
+    color: #5a6070;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s, color 0.15s, border-color 0.15s, transform 0.15s;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+#scroll-top:hover {
+    color: #a0a8bc;
+    border-color: #a0a8bc;
+    transform: translateY(-3px);
+}
