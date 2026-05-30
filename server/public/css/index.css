@@ -1,0 +1,51 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+th {
+    padding: 10px 14px;
+    text-align: left;
+    color: #5a6070;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    user-select: none;
+}
+
+th:hover {
+    color: #a0a8bc;
+}
+
+td {
+    padding: 8px 14px;
+    border-bottom: 1px solid #1a1d26;
+}
+
+tr:hover td {
+    background: #131620;
+}
+
+img.hero-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.hero-initial {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #333;
+  text-align: center;
+  line-height: 32px;
+  margin-right: 8px;
+  font-size: 13px;
+}

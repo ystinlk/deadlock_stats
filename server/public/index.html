@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Deadlock Stats</title>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/index.css">
+    </head>
+    <body>
+        <nav>
+            <a href="index.html">Герои</a>
+            <a href="pages/leader-board.html">Таблица лидеров</a>
+            <a href="pages/steam_finder.html">Поиск Steam</a>
+        </nav>
+        <table>
+            <thead>
+                <tr>
+                    <th id="hero">Герой</th>
+                    <th id="WR">Винрейт</th>
+                    <th id="PR">Пикрейт</th>
+                </tr>
+            </thead>
+            <tbody id="heroes-table"></tbody>
+        </table>
+        <script type="module" src="js/script.js"></script>
+        <button id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+       &#8593;
+      </button>
+    </body>
+</html>
