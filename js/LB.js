@@ -1,4 +1,5 @@
 import {get_leaderboard} from "./api.js";
+
 const regions = [
   "Europe",
   "Asia",
@@ -7,7 +8,6 @@ const regions = [
   "Oceania"
 ];
 
-const div = document.getElementsByTagName("div")[0]
 const leaderboards = []
 const lb_table = document.getElementById("leaderboard_table")
 
@@ -22,15 +22,11 @@ function RenderTemplate(id) {
       <td>${player.rank}</td>
       <td>${player.account_name}</td>
       </tr>
-  `
-  LB_row += row
+    `
+    LB_row += row
   });
-lb_table.innerHTML = LB_row
+  lb_table.innerHTML = LB_row
 }
-
-div.addEventListener("click", (event) => {
-  RenderTemplate(event.target.id)
-})
 
 Promise.all(get_leaderboard()).then(data => {
   regions.map((region_x, index) =>
@@ -44,15 +40,15 @@ Promise.all(get_leaderboard()).then(data => {
 
   document.querySelectorAll('.region-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-        document.querySelectorAll('.region-btn').forEach(b => b.classList.remove('active'))
-        btn.classList.add('active')
+      document.querySelectorAll('.region-btn').forEach(b => b.classList.remove('active'))
+      btn.classList.add('active')
+      RenderTemplate(btn.id)
     })
+  })
 })
-})
-// ловим ошибку
 .catch(err => console.log(err.message))
 
 window.addEventListener('scroll', () => {
-    document.getElementById('scroll-top').style.opacity
-        = window.scrollY > 300 ? '1' : '0'
+  document.getElementById('scroll-top').style.opacity
+    = window.scrollY > 300 ? '1' : '0'
 })
