@@ -1,13 +1,5 @@
 import {get_leaderboard} from "./api.js";
 
-const regions = [
-  "Europe",
-  "Asia",
-  "NAmerica",
-  "SAmerica",
-  "Oceania"
-];
-
 const leaderboards = []
 const lb_table = document.getElementById("leaderboard_table")
 
@@ -28,13 +20,14 @@ function RenderTemplate(id) {
   lb_table.innerHTML = LB_row
 }
 
-Promise.all(get_leaderboard()).then(data => {
-  regions.map((region_x, index) =>
-    leaderboards.push({
-      region: region_x,
-      data: data[index].entries
+get_leaderboard().then(data => {
+  
+    leaderboards.push(...data.map(item => ({ 
+      region: item.region, 
+      data: item.entries 
     })
   )
+)
 
   RenderTemplate("Europe")
 
