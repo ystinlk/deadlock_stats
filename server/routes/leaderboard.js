@@ -5,7 +5,7 @@ const router = express.Router()
 let cache = null
 let cacheTime = 0
 
-async function fetchWithRetry(url, retries = 3) {
+async function fetchWithRetry(url, retries = 5) {
     for (let i = 0; i < retries; i++) {
         try {
             const r = await axios.get(url, {
@@ -21,19 +21,28 @@ async function fetchWithRetry(url, retries = 3) {
     }
 }
 
+
 router.get("/", async (req, res) => {
+    try {
     const now = Date.now()
     if (cache && now - cacheTime < 60 * 60 * 1000) {
         return res.json(cache)
     }
     const regions = ["Europe", "Asia", "NAmerica", "SAmerica", "Oceania"]
-    const data = await Promise.all(regions.map(region =>
+    const data = await  Promise.all(regions.map(region =>
         fetchWithRetry(`https://api.deadlock-api.com/v1/leaderboard/${region}`)
         .then(d => ({ region, entries: d.entries }))
     ))
     cache = data
     cacheTime = now
     res.json(data)
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({
+            success: false,
+            error: err.message
+        })
+    }
 })
 
 export default router

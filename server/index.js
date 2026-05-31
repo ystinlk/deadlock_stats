@@ -18,4 +18,4 @@ app.use("/api/players", Steam_ID_find)
 
 app.use(express.static("public"))
 
-app.listen(PORT, () => console.log(`сервер запущен на порту ${PORT}`))
+app.listen(PORT, () => console.log(`сервер запущен \n http://localhost:${PORT} \n ильшат фембой`))
