@@ -1,3 +1,7 @@
+import dns from "node:dns"
+
+dns.setDefaultResultOrder("ipv4first")
+
 import express from "express"
 import heroes_router from "./routes/heroes.js"
 import leader_router from "./routes/leaderboard.js"
