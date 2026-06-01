@@ -35,4 +35,16 @@ router.get("/", async (req, res) => {
     }
 })
 
+router.get("/:id/info", async (req, res) => {
+    try {
+        const data = await fetchWithRetry(
+            `https://api.deadlock-api.com/v1/players/steam-search?search_query=${req.params.id}`
+        )
+        const player = data.find(p => p.account_id == req.params.id)
+        res.json(player || {})
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message })
+    }
+})
+
 export default router

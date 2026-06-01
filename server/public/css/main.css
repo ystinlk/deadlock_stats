@@ -68,3 +68,23 @@ nav a.active {
     border-color: #a0a8bc;
     transform: translateY(-3px);
 }
+
+#profile-btn {
+    all: unset;
+    margin-left: auto;
+    padding: 7px 16px;
+    border: 1px solid #1a1d26;
+    border-radius: 6px;
+    background: transparent;
+    color: #5a6070;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+#profile-btn:hover {
+    color: #a0a8bc;
+    border-color: #a0a8bc;
+}

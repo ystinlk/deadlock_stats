@@ -8,13 +8,14 @@ function RenderTemplate(players) {
     let LB_row = ""
     players.forEach(player => {
         
-        const row = `
-            <tr>
-            <td><img src="${player.avatarfull}"></td>
-            <td><a href="${player.profileurl}">${player.personaname}</a></td>
-            <td>матчей за 30 дней ${player.matches_played_last_30d}</td>
-            </tr>
-    ` 
+const row = `
+    <tr>
+    <td><img src="${player.avatarfull}"></td>
+    <td><a href="${player.profileurl}" target="_blank">${player.personaname}</a></td>
+    <td>матчей за 30 дней ${player.matches_played_last_30d}</td>
+    <td><a href="profile.html?id=${player.account_id}">Профиль</a></td>
+    </tr>
+`
   LB_row += row
   });
   search_table.innerHTML = LB_row
