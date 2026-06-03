@@ -91,3 +91,37 @@ td {
 tr:hover td {
     background: #131620;
 }
+
+#teammates-loading {
+    display: none;
+}
+
+#teammates-table a {
+    color: #c8cdd8;
+    text-decoration: none;
+    transition: color 0.15s;
+}
+
+#teammates-table a:hover {
+    color: #a0a8bc;
+}
+
+.more-btn {
+    display: block;
+    margin: 16px auto 0;
+    padding: 7px 24px;
+    border: 1px solid #1a1d26;
+    border-radius: 6px;
+    background: transparent;
+    color: #5a6070;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.more-btn:hover {
+    color: #a0a8bc;
+    border-color: #a0a8bc;
+}

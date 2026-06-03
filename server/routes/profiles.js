@@ -41,4 +41,15 @@ router.get("/:id/info", async (req, res) => {
     }
 })
 
+router.get("/match/:matchId/metadata", async (req, res) => {
+    try {
+        const data = await fetchWithRetry(
+            `https://api.deadlock-api.com/v1/matches/${req.params.matchId}/metadata`
+        )
+        res.json(data)
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message })
+    }
+})
+
 export default router

@@ -53,6 +53,18 @@
             </thead>
             <tbody id="match-history"></tbody>
         </table>
+        <h3 class="section-title">Частые тиммейты</h3>
+        <div id="teammates-loading" style="color: #5a6070; font-size: 13px;">Загрузка тиммейтов...</div>
+        <table id="teammates-table" style="display:none">
+            <thead>
+                <tr>
+                    <th>Игрок</th>
+                    <th>Матчей вместе</th>
+                    <th>Винрейт вместе</th>
+                </tr>
+            </thead>
+            <tbody id="teammates-body"></tbody>
+        </table>
     </div>
     <button id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">&#8593;</button>
     <script type="module" src="../js/profile.js"></script>

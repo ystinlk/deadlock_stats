@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Все матчи</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Герои</a>
+        <a href="leader-board.html">Таблица лидеров</a>
+        <a href="steam_finder.html">Поиск Steam</a>
+        <button id="profile-btn">Войти</button>
+    </nav>
+    <div class="profile-container">
+        <div style="margin-bottom: 16px;">
+            <a id="back-to-profile" href="#" style="color: #5a6070; font-size: 12px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em;">← Назад к профилю</a>
+        </div>
+        <h3 class="section-title">Все матчи</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Герой</th>
+                    <th>Результат</th>
+                    <th>KDA</th>
+                    <th>Нетворс</th>
+                    <th>Длительность</th>
+                </tr>
+            </thead>
+            <tbody id="match-history"></tbody>
+        </table>
+    </div>
+    <button id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">&#8593;</button>
+    <script type="module" src="../js/matches.js"></script>
+</body>
+</html>
