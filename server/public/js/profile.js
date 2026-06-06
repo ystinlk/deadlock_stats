@@ -99,6 +99,7 @@ async function loadTeammates(matches) {
         await Promise.all(batch.map(async match => {
             try {
                 const data = await get_match_metadata(match.match_id)
+                if (!data || !data.match_info || !data.match_info.players) return
                 const players = data.match_info.players
                 const myTeam = players.find(p => p.account_id == accountId)?.team
 
