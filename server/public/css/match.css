@@ -90,6 +90,10 @@ td, th {
   text-align: left;
 }
 
+img {
+  width: 20px;
+  height: 20px;
+}
 .name_box    { width: 29%; color: var(--accent); }
 .kda_box     { width: 14%; font-family: monospace; }
 .networth_box{ width: 14%; color: var(--text-muted); }

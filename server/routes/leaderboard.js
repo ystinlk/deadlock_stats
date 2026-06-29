@@ -1,26 +1,9 @@
 import express from "express"
-import axios from "axios"
+import fetchWithRetry from "../utils/RetryFetch.js"
 const router = express.Router()
 
 let cache = null
 let cacheTime = 0
-
-async function fetchWithRetry(url, retries = 5) {
-    for (let i = 0; i < retries; i++) {
-        try {
-            const r = await axios.get(url, {
-                maxContentLength: Infinity,
-                maxBodyLength: Infinity,
-                timeout: 1500
-            })
-            return r.data
-        } catch (e) {
-            if (i === retries - 1) throw e
-            await new Promise(res => setTimeout(res, 1000))
-        }
-    }
-}
-
 
 router.get("/", async (req, res) => {
     try {

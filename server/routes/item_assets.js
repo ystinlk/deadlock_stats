@@ -2,16 +2,18 @@ import express from "express"
 import fetchWithRetry from "../utils/RetryFetch.js"
 const router = express.Router()
 
+let cache = null
+let cacheTime = 0
 router.get("/", async (req, res) => {
     try {
-    const [heroes, hero_stats] =  await Promise.all([
-        fetchWithRetry("https://api.deadlock-api.com/v1/assets/heroes"),
-        fetchWithRetry("https://api.deadlock-api.com/v1/analytics/hero-stats")
-    ])
-    res.json({ 
-        heroes, 
-        hero_stats
-    })
+    const now = Date.now()
+    if (cache && now - cacheTime < 60 * 60 * 1000) {
+        return res.json(cache)
+    }
+    const data = await fetchWithRetry(`https://api.deadlock-api.com/v1/assets/items`)
+    cache = data
+    cacheTime = now
+    res.json(data)
     } catch (err) {
         console.log(err)
         res.status(500).json({
@@ -20,5 +22,6 @@ router.get("/", async (req, res) => {
         })
     }
 })
+
 
 export default router

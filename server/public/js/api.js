@@ -37,7 +37,15 @@ export function get_player_info(account_id) {
 }
 
 export function get_match_metadata(matchId) {
-    return fetch(`/api/profile/match/${matchId}/metadata`)
+    return fetch(`/api/matches/${matchId}/metadata`)
+    .then(r => {
+        if (!r.ok) throw new Error(`Ошибка ${r.status}`)
+        return r.json()
+    })
+}
+
+export function get_items() {
+    return fetch('/api/items')
     .then(r => {
         if (!r.ok) throw new Error(`Ошибка ${r.status}`)
         return r.json()
